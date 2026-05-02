@@ -564,14 +564,14 @@
     cardsContainer.className = 'cards-grid';
 
     vegetables.forEach(function(vegetable) {
-      var card = createVegetableCard(vegetable);
+      var card = createVegetableCard(vegetable, selectedDate);
       cardsContainer.appendChild(card);
     });
 
     container.appendChild(cardsContainer);
   }
 
-  function createVegetableCard(vegetable) {
+  function createVegetableCard(vegetable, plantDate) {
     var card = document.createElement('div');
     card.className = 'vegetable-card';
     
@@ -583,8 +583,20 @@
     spacing.innerHTML = '<strong>Spacing:</strong> ' + vegetable.spaceCm + ' cm';
     card.appendChild(spacing);
 
+    // Calculate harvest dates
+    var minHarvestDate = new Date(plantDate);
+    minHarvestDate.setDate(minHarvestDate.getDate() + vegetable.harvestDays.min);
+    
+    var maxHarvestDate = new Date(plantDate);
+    maxHarvestDate.setDate(maxHarvestDate.getDate() + vegetable.harvestDays.max);
+    
+    var formatDate = function(date) {
+      var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      return months[date.getMonth()] + ' ' + date.getDate();
+    };
+
     var harvest = document.createElement('p');
-    harvest.innerHTML = '<strong>Harvest Days:</strong> ' + vegetable.harvestDays.min + ' - ' + vegetable.harvestDays.max + ' days';
+    harvest.innerHTML = '<strong>Harvest:</strong> ' + formatDate(minHarvestDate) + ' - ' + formatDate(maxHarvestDate);
     card.appendChild(harvest);
 
     return card;
