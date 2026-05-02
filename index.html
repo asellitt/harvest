@@ -1,0 +1,534 @@
+<script>
+  var amaranth = {
+    name: "amaranth",
+    sow: ["soil", "punnets"],
+    spaceCm: "50",
+    harvestDays: {
+      min: 49,
+      max: 56
+    },
+  };
+  var asparagus = {
+    name: "asparagus",
+    sow: ["soil"],
+    spaceCm: "40",
+    harvestDays: {
+      min: 730,
+      max: 730
+    },
+  };
+  var artichoke = {
+    name: "artichoke",
+    sow: ["soil", "punnets"],
+    spaceCm: "100",
+    harvestDays: {
+      min: 175,
+      max: 175
+    },
+  };
+  var basil = {
+    name: "basil",
+    sow: ["soil", "punnets", "pots"],
+    spaceCm: "25",
+    harvestDays: {
+      min: 84,
+      max: 84
+    },
+  };
+  var beans = {
+    name: "beans",
+    sow: ["soil"],
+    spaceCm: "15",
+    harvestDays: {
+      min: 63,
+      max: 133
+    },
+  };
+  var broadbeans = {
+    name: "broad beans",
+    sow: ["soil"],
+    spaceCm: "20",
+    harvestDays: {
+      min: 105,
+      max: 105
+    },
+  };
+  var beetroot = {
+    name: "beetroot",
+    sow: ["soil"],
+    spaceCm: "10",
+    harvestDays: {
+      min: 49,
+      max: 140
+    },
+  };
+  var broccoli = {
+    name: "broccoli",
+    sow: ["soil", "punnets"],
+    spaceCm: "60",
+    harvestDays: {
+      min: 42,
+      max: 70
+    },
+  };
+  var brusselsprouts = {
+    name: "brussel sprouts",
+    sow: ["soil", "punnets"],
+    spaceCm: "50",
+    harvestDays: {
+      min: 140,
+      max: 175
+    },
+  };
+  var cabbage = {
+    name: "cabbage",
+    sow: ["soil", "punnets"],
+    spaceCm: "30",
+    harvestDays: {
+      min: 98,
+      max: 154
+    },
+  };
+  var capsicum = {
+    name: "capsicum",
+    sow: ["punnets"],
+    spaceCm: "50",
+    harvestDays: {
+      min: 77,
+      max: 126
+    },
+  };
+  var carrot = {
+    name: "carrot",
+    sow: ["soil"],
+    spaceCm: "10",
+    harvestDays: {
+      min: 56,
+      max: 126
+    },
+  };
+  var cauliflower = {
+    name: "cauliflower",
+    sow: ["soil", "punnets"],
+    spaceCm: "20",
+    harvestDays: {
+      min: 126,
+      max: 175
+    },
+  };
+  var celery = {
+    name: "celery",
+    sow: ["soil", "punnets"],
+    spaceCm: "20",
+    harvestDays: {
+      min: 147,
+      max: 168
+    },
+  };
+  var celtuce = {
+    name: "celtuce",
+    sow: ["soil", "punnets"],
+    spaceCm: "20",
+    harvestDays: {
+      min: 154,
+      max: 154
+    },
+  };
+  var chervil = {
+    name: "chervil",
+    sow: ["soil"],
+    spaceCm: "25",
+    harvestDays: {
+      min: 70,
+      max: 126
+    },
+  };
+  var chilli = {
+    name: "chilli",
+    sow: ["punnets"],
+    spaceCm: "50",
+    harvestDays: {
+      min: 56,
+      max: 56
+    },
+  };
+  var chives = {
+    name: "chives",
+    sow: ["soil", "punnets"],
+    spaceCm: "10",
+    harvestDays: {
+      min: 84,
+      max: 84
+    },
+  };
+  var choko = {
+    name: "choko",
+    sow: ["soil"],
+    spaceCm: "100",
+    harvestDays: {
+      min: 119,
+      max: 133
+    },
+  };
+  var coriander = {
+    name: "coriander",
+    sow: ["soil", "punnets"],
+    spaceCm: "25",
+    harvestDays: {
+      min: 28,
+      max: 84
+    },
+  };
+  var corn = {
+    name: "corn",
+    sow: ["soil"],
+    spaceCm: "20",
+    harvestDays: {
+      min: 77,
+      max: 98
+    },
+  };
+  var cucumber = {
+    name: "cucumber",
+    sow: ["soil", "punnets"],
+    spaceCm: "70",
+    harvestDays: {
+      min: 49,
+      max: 63
+    },
+  };
+  var daikon = {
+    name: "daikon",
+    sow: ["soil"],
+    spaceCm: "15",
+    harvestDays: {
+      min: 56,
+      max: 70
+    },
+  };
+  var dill = {
+    name: "dill",
+    sow: ["soil", "punnets"],
+    spaceCm: "25",
+    harvestDays: {
+      min: 84,
+      max: 84
+    },
+  };
+  var eggplant = {
+    name: "eggplant",
+    sow: ["punnets"],
+    spaceCm: "50",
+    harvestDays: {
+      min: 63,
+      max: 105
+    },
+  };
+  var endive = {
+    name: "endive",
+    sow: ["soil"],
+    spaceCm: "25",
+    harvestDays: {
+      min: 84,
+      max: 84
+    },
+  };
+  var fennel = {
+    name: "fennel",
+    sow: ["punnets"],
+    spaceCm: "30",
+    harvestDays: {
+      min: 98,
+      max: 105
+    },
+  };
+  var garlic = {
+    name: "garlic",
+    sow: ["soil"],
+    spaceCm: "10",
+    harvestDays: {
+      min: 119,
+      max: 175
+    },
+  };
+  var ginger = {
+    name: "ginger",
+    sow: ["soil"],
+    spaceCm: "15",
+    harvestDays: {
+      min: 175,
+      max: 175
+    },
+  };
+  var kale = {
+    name: "kale",
+    sow: ["soil", "punnets"],
+    spaceCm: "30",
+    harvestDays: {
+      min: 49,
+      max: 105
+    },
+  };
+  var kohlrabi = {
+    name: "kohlrabi",
+    sow: ["punnets"],
+    spaceCm: "20",
+    harvestDays: {
+      min: 56,
+      max: 70
+    },
+  };
+  var leek = {
+    name: "leek",
+    sow: ["soil", "punnets"],
+    spaceCm: "10",
+    harvestDays: {
+      min: 84,
+      max: 140
+    },
+  };
+  var lettuce = {
+    name: "lettuce",
+    sow: ["soil", "punnets"],
+    spaceCm: "20",
+    harvestDays: {
+      min: 35,
+      max: 77
+    },
+  };
+  var loofah = {
+    name: "loofah",
+    sow: ["soil", "punnets"],
+    spaceCm: "60",
+    harvestDays: {
+      min: 70,
+      max: 84
+    },
+  };
+  var okra = {
+    name: "okra",
+    sow: ["soil"],
+    spaceCm: "60",
+    harvestDays: {
+      min: 77,
+      max: 98
+    },
+  };
+  var onion = {
+    name: "onion",
+    sow: ["soil", "punnets"],
+    spaceCm: "10",
+    harvestDays: {
+      min: 126,
+      max: 126
+    },
+  };
+  var parsley = {
+    name: "parsley",
+    sow: ["soil", "punnets"],
+    spaceCm: "25",
+    harvestDays: {
+      min: 175,
+      max: 175
+    },
+  };
+  var parsnip = {
+    name: "parsnip",
+    sow: ["soil"],
+    spaceCm: "10",
+    harvestDays: {
+      min: 70,
+      max: 133
+    },
+  };
+  var peas = {
+    name: "peas",
+    sow: ["soil", "punnets"],
+    spaceCm: "15",
+    harvestDays: {
+      min: 63,
+      max: 105
+    },
+  };
+  var potato = {
+    name: "potato",
+    sow: ["soil"],
+    spaceCm: "40",
+    harvestDays: {
+      min: 105,
+      max: 140
+    },
+  };
+  var pumpkin = {
+    name: "pumpkin",
+    sow: ["soil", "punnets"],
+    spaceCm: "200",
+    harvestDays: {
+      min: 105,
+      max: 140
+    },
+  };
+  var radish = {
+    name: "radish",
+    sow: ["soil"],
+    spaceCm: "5",
+    harvestDays: {
+      min: 28,
+      max: 56
+    },
+  };
+  var rockmelon = {
+    name: "rockmelon",
+    sow: ["soil", "punnets"],
+    spaceCm: "100",
+    harvestDays: {
+      min: 49,
+      max: 63
+    },
+  };
+  var roquette = {
+    name: "roquette",
+    sow: ["soil", "punnets"],
+    spaceCm: "20",
+    harvestDays: {
+      min: 21,
+      max: 28
+    },
+  };
+  var rosella = {
+    name: "rosella",
+    sow: ["soil"],
+    spaceCm: "100",
+    harvestDays: {
+      min: 147,
+      max: 175
+    },
+  };
+  var sage = {
+    name: "sage",
+    sow: ["pots"],
+    spaceCm: "25",
+    harvestDays: {
+      min: 168,
+      max: 168
+    },
+  };
+  var silverbeet = {
+    name: "silverbeet",
+    sow: ["soil", "punnets"],
+    spaceCm: "25",
+    harvestDays: {
+      min: 56,
+      max: 56
+    },
+  };
+  var spinach = {
+    name: "spinach",
+    sow: ["soil", "punnets"],
+    spaceCm: "30",
+    harvestDays: {
+      min: 35,
+      max: 70
+    },
+  };
+  var springonion = {
+    name: "spring onion",
+    sow: ["soil", "punnets"],
+    spaceCm: "5",
+    harvestDays: {
+      min: 63,
+      max: 105
+    },
+  };
+  var squash = {
+    name: "squash",
+    sow: ["soil", "punnets"],
+    spaceCm: "70",
+    harvestDays: {
+      min: 49,
+      max: 119
+    },
+  };
+  var swede = {
+    name: "swede",
+    sow: ["soil", "punnets"],
+    spaceCm: "10",
+    harvestDays: {
+      min: 56,
+      max: 84
+    },
+  };
+  var thyme = {
+    name: "thyme",
+    sow: ["pots"],
+    spaceCm: "25",
+    harvestDays: {
+      min: 168,
+      max: 168
+    },
+  };
+  var tomato = {
+    name: "tomato",
+    sow: ["punnets", "pots"],
+    spaceCm: "100",
+    harvestDays: {
+      min: 77,
+      max: 98
+    },
+  };
+  var turnip = {
+    name: "turnip",
+    sow: ["soil"],
+    spaceCm: "5",
+    harvestDays: {
+      min: 49,
+      max: 77
+    },
+  };
+  var watermelon = {
+    name: "watermelon",
+    sow: ["soil", "punnets"],
+    spaceCm: "100",
+    harvestDays: {
+      min: 70,
+      max: 140
+    },
+  };
+  var zucchini = {
+    name: "zucchini",
+    sow: ["soil", "punnets"],
+    spaceCm: "70",
+    harvestDays: {
+      min: 42,
+      max: 70
+    },
+  };
+
+  var byMonth = [
+    // January
+    [beans, beetroot, broccoli, brusselsprouts, cabbage, carrot, celtuce, chervil, chives, corn, garlic, kale, kohlrabi, leek, lettuce, radish, silverbeet, springonion, swede, turnip], 
+    // February
+    [beetroot, broccoli, brusselsprouts, cabbage, carrot, cauliflower, celtuce, chervil, chives, garlic, kale, kohlrabi, leek, lettuce, radish, silverbeet, springonion, swede, turnip], 
+    // March
+    [broadbeans, broccoli, cabbage, cauliflower, celtuce, chives, coriander, endive, garlic, kale, kohlrabi, leek, lettuce, onion, parsley, parsnip, peas, radish, roquette, springonion, swede, thyme, turnip], 
+    // April
+    [broadbeans, broccoli, cauliflower, celtuce, coriander, endive, garlic, lettuce, onion, parsley, parsnip, peas, radish, roquette, spinach, springonion, swede, thyme, turnip], 
+    // May
+    [broadbeans, broccoli, cauliflower, celtuce, coriander, garlic, lettuce, onion, peas, parsnip, radish, roquette, spinach, springonion, thyme, turnip], 
+    // June
+    [broadbeans, broccoli, cabbage, celtuce, kale, lettuce, onion, peas, radish, spinach, springonion, thyme, turnip], 
+    // July
+    [broadbeans, broccoli, cabbage, celtuce, kale, lettuce, onion, peas, radish, springonion, turnip], 
+    // August
+    [broadbeans, broccoli, cabbage, celtuce, coriander, kale, kohlrabi, lettuce, onion, parsley, peas, potato, radish, springonion, swede, tomato, turnip], 
+    // September
+    [amaranth, asparagus, artichoke, beetroot, broccoli, cabbage, capsicum, carrot, celery, celtuce, chervil, chilli, choko, coriander, corn, dill, eggplant, endive, fennel, kale, kohlrabi, leek, lettuce, loofah, parsley, parsnip, peas, potato, radish, roquette, silverbeet, spinach, springonion, swede, tomato, turnip], 
+    // October
+    [amaranth, asparagus, artichoke, basil, beans, beetroot, broccoli, brusselsprouts, cabbage, capsicum, carrot, celery, celtuce, chervil, chilli, chives, choko, coriander, corn, cucumber, daikon, dill, eggplant, endive, fennel, ginger, kale, kohlrabi, leek, lettuce, loofah, parsley, parsnip, peas, potato, pumpkin, radish, rockmelon, roquette, sage, silverbeet, spinach, springonion, squash, swede, tomato, turnip, watermelon, zucchini], 
+    // November
+    [amaranth, asparagus, artichoke, basil, beans, beetroot, broccoli, brusselsprouts, cabbage, capsicum, carrot, celery, celtuce, chervil, chilli, chives, choko, coriander, corn, cucumber, daikon, endive, ginger, kale, kohlrabi, leek, lettuce, loofah, parsley, parsnip, potato, pumpkin, radish, rockmelon, roquette, rosella, sage, silverbeet, springonion, squash, tomato, turnip, watermelon, zucchini], 
+    // December
+    [basil, beans, beetroot, broccoli, brusselsprouts, cabbage, carrot, celery, celtuce, chervil, chives, corn, cucumber, garlic, ginger, kale, kohlrabi, leek, lettuce, parsley, parsnip, potato, pumpkin, radish, rosella, sage, silverbeet, springonion, squash, tomato, turnip, watermelon, zucchini],  
+  ]
+
+</script>
