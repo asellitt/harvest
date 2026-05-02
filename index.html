@@ -580,14 +580,23 @@
   function createVegetableCard(vegetable, plantDate) {
     var card = document.createElement('div');
     card.className = 'vegetable-card';
-    
+
+    var image = document.createElement('img');
+    var imageName = vegetable.name.toLowerCase();
+    image.src = 'assets/images/' + imageName + '.webp';
+    image.alt = vegetable.name + ' image';
+    card.appendChild(image);
+
+    var body = document.createElement('div');
+    body.className = 'card-body';
+
     var name = document.createElement('h3');
     name.textContent = vegetable.name.charAt(0).toUpperCase() + vegetable.name.slice(1);
-    card.appendChild(name);
+    body.appendChild(name);
 
     var spacing = document.createElement('p');
     spacing.innerHTML = '<strong>Spacing:</strong> ' + vegetable.spaceCm + ' cm';
-    card.appendChild(spacing);
+    body.appendChild(spacing);
 
     // Calculate harvest dates
     var minHarvestDate = new Date(plantDate);
@@ -603,7 +612,9 @@
 
     var harvest = document.createElement('p');
     harvest.innerHTML = '<strong>Harvest:</strong> ' + formatDate(minHarvestDate) + ' - ' + formatDate(maxHarvestDate);
-    card.appendChild(harvest);
+    body.appendChild(harvest);
+
+    card.appendChild(body);
 
     return card;
   }
@@ -694,7 +705,8 @@
   .vegetable-card {
     background: white;
     border-radius: 10px;
-    padding: 20px;
+    padding: 0;
+    overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
@@ -702,6 +714,17 @@
   .vegetable-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .vegetable-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .vegetable-card .card-body {
+    padding: 20px;
   }
 
   .vegetable-card h3 {
