@@ -571,6 +571,12 @@
     container.appendChild(cardsContainer);
   }
 
+  function resetDateToToday() {
+    var dateInput = document.getElementById('harvestDate');
+    dateInput.value = todayString;
+    updateVegetables();
+  }
+
   function createVegetableCard(vegetable, plantDate) {
     var card = document.createElement('div');
     card.className = 'vegetable-card';
@@ -655,6 +661,22 @@
     min-width: 200px;
   }
 
+  .date-selector button {
+    padding: 10px 20px;
+    background-color: #4a7c2f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .date-selector button:hover {
+    background-color: #2d5016;
+  }
+
   #vegetableContainer h2 {
     color: white;
     text-align: center;
@@ -702,13 +724,14 @@
 <body>
   <div class="container">
     <header>
-      <h1>🌾 Harvest Themes</h1>
+      <h1>🌾 What should I plant?</h1>
       <p>Discover what vegetables are in season this month</p>
     </header>
 
     <div class="date-selector">
       <label for="harvestDate">Select Date:</label>
       <input type="date" id="harvestDate">
+      <button onclick="resetDateToToday()">Today</button>
     </div>
 
     <div id="vegetableContainer"></div>
