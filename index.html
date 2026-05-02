@@ -531,4 +531,174 @@
     [basil, beans, beetroot, broccoli, brusselsprouts, cabbage, carrot, celery, celtuce, chervil, chives, corn, cucumber, garlic, ginger, kale, kohlrabi, leek, lettuce, parsley, parsnip, potato, pumpkin, radish, rosella, sage, silverbeet, springonion, squash, tomato, turnip, watermelon, zucchini],  
   ]
 
+  // Get today's date as default
+  var today = new Date();
+  var todayString = today.toISOString().split('T')[0];
+
+  // Initialize with today's date
+  document.addEventListener('DOMContentLoaded', function() {
+    var dateInput = document.getElementById('harvestDate');
+    dateInput.value = todayString;
+    updateVegetables();
+    
+    dateInput.addEventListener('change', updateVegetables);
+  });
+
+  function updateVegetables() {
+    var dateInput = document.getElementById('harvestDate');
+    var selectedDate = new Date(dateInput.value);
+    var month = selectedDate.getMonth(); // 0-11
+
+    var vegetables = byMonth[month];
+    var container = document.getElementById('vegetableContainer');
+    container.innerHTML = '';
+
+    var monthNames = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"];
+    
+    var heading = document.createElement('h2');
+    heading.textContent = monthNames[month] + ' Vegetables';
+    container.appendChild(heading);
+
+    var cardsContainer = document.createElement('div');
+    cardsContainer.className = 'cards-grid';
+
+    vegetables.forEach(function(vegetable) {
+      var card = createVegetableCard(vegetable);
+      cardsContainer.appendChild(card);
+    });
+
+    container.appendChild(cardsContainer);
+  }
+
+  function createVegetableCard(vegetable) {
+    var card = document.createElement('div');
+    card.className = 'vegetable-card';
+    
+    var name = document.createElement('h3');
+    name.textContent = vegetable.name.charAt(0).toUpperCase() + vegetable.name.slice(1);
+    card.appendChild(name);
+
+    var spacing = document.createElement('p');
+    spacing.innerHTML = '<strong>Spacing:</strong> ' + vegetable.spaceCm + ' cm';
+    card.appendChild(spacing);
+
+    var harvest = document.createElement('p');
+    harvest.innerHTML = '<strong>Harvest Days:</strong> ' + vegetable.harvestDays.min + ' - ' + vegetable.harvestDays.max + ' days';
+    card.appendChild(harvest);
+
+    return card;
+  }
 </script>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  header {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+  }
+
+  header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+  }
+
+  .date-selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .date-selector label {
+    color: white;
+    font-weight: bold;
+    font-size: 1.1em;
+    align-self: center;
+  }
+
+  .date-selector input {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    min-width: 200px;
+  }
+
+  #vegetableContainer h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .vegetable-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .vegetable-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .vegetable-card h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+  }
+
+  .vegetable-card p {
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+
+  .vegetable-card strong {
+    color: #764ba2;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>🌾 Harvest Themes</h1>
+      <p>Discover what vegetables are in season this month</p>
+    </header>
+
+    <div class="date-selector">
+      <label for="harvestDate">Select Date:</label>
+      <input type="date" id="harvestDate">
+    </div>
+
+    <div id="vegetableContainer"></div>
+  </div>
+</body>
