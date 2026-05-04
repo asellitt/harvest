@@ -567,10 +567,14 @@
     var dateInput = document.getElementById('harvestDate');
     var climateSelect = document.getElementById('climateZone');
     dateInput.value = todayString;
+    updateZoneImage();
     updateVegetables();
     
     dateInput.addEventListener('change', updateVegetables);
-    climateSelect.addEventListener('change', updateVegetables);
+    climateSelect.addEventListener('change', function() {
+      updateZoneImage();
+      updateVegetables();
+    });
   });
 
   function updateVegetables() {
@@ -603,6 +607,14 @@
     container.appendChild(cardsContainer);
   }
 
+  function updateZoneImage() {
+    var climateSelect = document.getElementById('climateZone');
+    var zoneImage = document.getElementById('zoneImage');
+    var climateZone = climateSelect.value;
+    zoneImage.src = 'assets/images/zones/' + climateZone + '.png';
+    zoneImage.alt = climateZone.charAt(0).toUpperCase() + climateZone.slice(1) + ' Climate Zone Map';
+  }
+
   function resetDateToToday() {
     var dateInput = document.getElementById('harvestDate');
     dateInput.value = todayString;
@@ -615,7 +627,7 @@
 
     var image = document.createElement('img');
     var imageName = vegetable.name.toLowerCase();
-    image.src = 'assets/images/' + imageName + '.webp';
+    image.src = 'assets/images/vegetables/' + imageName + '.webp';
     image.alt = vegetable.name + ' image';
     card.appendChild(image);
 
@@ -736,6 +748,43 @@
     background-color: #2d5016;
   }
 
+  .info-container {
+    position: relative;
+    display: inline-block;
+    margin-left: 5px;
+  }
+
+  .info-icon {
+    cursor: pointer;
+    font-size: 2em;
+  }
+
+  .zone-tooltip {
+    position: absolute;
+    background: white;
+    border: 2px solid #4a7c2f;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: none;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 5px;
+    white-space: nowrap;
+  }
+
+  .zone-tooltip img {
+    max-width: 400px;
+    max-height: 400px;
+    border-radius: 4px;
+  }
+
+  .info-container:hover .zone-tooltip {
+    display: block;
+  }
+
   #vegetableContainer h2 {
     color: white;
     text-align: center;
@@ -805,6 +854,12 @@
           <option value="cool" selected>Cool</option>
           <option value="warm">Warm</option>
         </select>
+        <div class="info-container">
+          <span class="info-icon" id="zoneInfo">ℹ️</span>
+          <div class="zone-tooltip" id="zoneTooltip">
+            <img id="zoneImage" src="assets/images/zones/cool.png" alt="Climate Zone Map">
+          </div>
+        </div>
       </div>
       <div class="date-selector">
         <label for="harvestDate">Select Date:</label>
