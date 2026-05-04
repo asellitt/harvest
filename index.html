@@ -627,12 +627,21 @@
   var today = new Date();
   var todayString = today.toISOString().split('T')[0];
   var grouped = false;
+  var groupToggle;
 
   // Initialize with today's date
   document.addEventListener('DOMContentLoaded', function() {
     var dateInput = document.getElementById('harvestDate');
     var climateSelect = document.getElementById('climateZone');
-    var groupToggle = document.getElementById('groupToggle');
+    groupToggle = document.createElement('button');
+    groupToggle.id = 'groupToggle';
+    groupToggle.className = 'group-toggle-button';
+    groupToggle.textContent = 'Crop Rotation';
+    groupToggle.addEventListener('click', function() {
+      grouped = !grouped;
+      groupToggle.textContent = grouped ? 'Ungroup' : 'Crop Rotation';
+      updateVegetables();
+    });
     dateInput.value = todayString;
     updateZoneImage();
     updateVegetables();
@@ -640,11 +649,6 @@
     dateInput.addEventListener('change', updateVegetables);
     climateSelect.addEventListener('change', function() {
       updateZoneImage();
-      updateVegetables();
-    });
-    groupToggle.addEventListener('click', function() {
-      grouped = !grouped;
-      groupToggle.textContent = grouped ? 'Ungroup' : 'Crop Rotation';
       updateVegetables();
     });
   });
@@ -665,9 +669,17 @@
     var monthNames = ["January", "February", "March", "April", "May", "June",
       "July", "August", "September", "October", "November", "December"];
     
+    var headerDiv = document.createElement('div');
+    headerDiv.className = 'vegetable-header';
+
     var heading = document.createElement('h2');
+    heading.className = 'vegetable-heading';
     heading.textContent = monthNames[month] + ' Vegetables (' + climateZone.charAt(0).toUpperCase() + climateZone.slice(1) + ' Climate)';
-    container.appendChild(heading);
+    headerDiv.appendChild(heading);
+
+    headerDiv.appendChild(groupToggle);
+
+    container.appendChild(headerDiv);
 
     if (grouped) {
       // Group by category
@@ -896,11 +908,34 @@
     display: block;
   }
 
-  #vegetableContainer h2 {
-    color: white;
-    text-align: center;
+  .vegetable-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
     margin-bottom: 30px;
+    color: white;
+  }
+
+  .vegetable-heading {
     font-size: 2em;
+    margin: 0;
+  }
+
+  .group-toggle-button {
+    padding: 10px 20px;
+    background-color: #4a7c2f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .group-toggle-button:hover {
+    background-color: #2d5016;
   }
 
   .category-heading {
@@ -984,7 +1019,6 @@
         <label for="harvestDate">Select Date:</label>
         <input type="date" id="harvestDate">
         <button onclick="resetDateToToday()">Today</button>
-        <button id="groupToggle">Crop Rotation</button>
       </div>
     </div>
 
