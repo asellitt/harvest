@@ -626,11 +626,13 @@
   // Get today's date as default
   var today = new Date();
   var todayString = today.toISOString().split('T')[0];
+  var grouped = true;
 
   // Initialize with today's date
   document.addEventListener('DOMContentLoaded', function() {
     var dateInput = document.getElementById('harvestDate');
     var climateSelect = document.getElementById('climateZone');
+    var groupToggle = document.getElementById('groupToggle');
     dateInput.value = todayString;
     updateZoneImage();
     updateVegetables();
@@ -638,6 +640,11 @@
     dateInput.addEventListener('change', updateVegetables);
     climateSelect.addEventListener('change', function() {
       updateZoneImage();
+      updateVegetables();
+    });
+    groupToggle.addEventListener('click', function() {
+      grouped = !grouped;
+      groupToggle.textContent = grouped ? 'Ungroup' : 'Crop Rotation';
       updateVegetables();
     });
   });
@@ -662,35 +669,47 @@
     heading.textContent = monthNames[month] + ' Vegetables (' + climateZone.charAt(0).toUpperCase() + climateZone.slice(1) + ' Climate)';
     container.appendChild(heading);
 
-    // Group by category
-    var grouped = {};
-    allVegetables.forEach(function(veg) {
-      if (!grouped[veg.category]) {
-        grouped[veg.category] = [];
-      }
-      grouped[veg.category].push(veg);
-    });
+    if (grouped) {
+      // Group by category
+      var groupedVegs = {};
+      allVegetables.forEach(function(veg) {
+        if (!groupedVegs[veg.category]) {
+          groupedVegs[veg.category] = [];
+        }
+        groupedVegs[veg.category].push(veg);
+      });
 
-    // For each rotation, show the section
-    cropRotations.forEach(function(rotation) {
-      var cat = rotation.next;
-      if (grouped[cat]) {
-        var catHeading = document.createElement('h3');
-        catHeading.className = 'category-heading';
-        catHeading.textContent = 'Rotating out ' + titlecase(rotation.previous) + ':';
-        container.appendChild(catHeading);
+      // For each rotation, show the section
+      cropRotations.forEach(function(rotation) {
+        var cat = rotation.next;
+        if (groupedVegs[cat]) {
+          var catHeading = document.createElement('h3');
+          catHeading.textContent = 'If replacing ' + titlecase(rotation.previous) + ', plant these ' + titlecase(cat);
+          catHeading.className = 'category-heading';
+          container.appendChild(catHeading);
 
-        var cardsContainer = document.createElement('div');
-        cardsContainer.className = 'cards-grid';
+          var cardsContainer = document.createElement('div');
+          cardsContainer.className = 'cards-grid';
 
-        grouped[cat].forEach(function(vegetable) {
-          var card = createVegetableCard(vegetable, selectedDate);
-          cardsContainer.appendChild(card);
-        });
+          groupedVegs[cat].forEach(function(vegetable) {
+            var card = createVegetableCard(vegetable, selectedDate);
+            cardsContainer.appendChild(card);
+          });
 
-        container.appendChild(cardsContainer);
-      }
-    });
+          container.appendChild(cardsContainer);
+        }
+      });
+    } else {
+      var cardsContainer = document.createElement('div');
+      cardsContainer.className = 'cards-grid';
+
+      allVegetables.forEach(function(vegetable) {
+        var card = createVegetableCard(vegetable, selectedDate);
+        cardsContainer.appendChild(card);
+      });
+
+      container.appendChild(cardsContainer);
+    }
   }
 
   function updateZoneImage() {
@@ -964,6 +983,7 @@
         <label for="harvestDate">Select Date:</label>
         <input type="date" id="harvestDate">
         <button onclick="resetDateToToday()">Today</button>
+        <button id="groupToggle">Crop Rotation</button>
       </div>
     </div>
 
