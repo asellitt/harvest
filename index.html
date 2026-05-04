@@ -559,6 +559,13 @@
     },
     category: "solanaceae and friends",
   };
+
+  cropRotations = [
+    {previous: "brassica and leafy greens", next: "root vegetables and friends"},
+    {previous: "root vegetables and friends", next: "solanaceae and friends"},
+    {previous: "solanaceae and friends", next: "legumes and onions"},
+    {previous: "legumes and onions", next: "brassica and leafy greens"}
+  ]
 </script>
 <script>
   var coolByMonth = [
@@ -643,7 +650,8 @@
     var climateZone = climateSelect.value;
 
     var byMonth = climateZone === 'warm' ? warmByMonth : coolByMonth;
-    var vegetables = byMonth[month];
+    var allVegetables = byMonth[month];
+
     var container = document.getElementById('vegetableContainer');
     container.innerHTML = '';
 
@@ -654,15 +662,35 @@
     heading.textContent = monthNames[month] + ' Vegetables (' + climateZone.charAt(0).toUpperCase() + climateZone.slice(1) + ' Climate)';
     container.appendChild(heading);
 
-    var cardsContainer = document.createElement('div');
-    cardsContainer.className = 'cards-grid';
-
-    vegetables.forEach(function(vegetable) {
-      var card = createVegetableCard(vegetable, selectedDate);
-      cardsContainer.appendChild(card);
+    // Group by category
+    var grouped = {};
+    allVegetables.forEach(function(veg) {
+      if (!grouped[veg.category]) {
+        grouped[veg.category] = [];
+      }
+      grouped[veg.category].push(veg);
     });
 
-    container.appendChild(cardsContainer);
+    // For each rotation, show the section
+    cropRotations.forEach(function(rotation) {
+      var cat = rotation.next;
+      if (grouped[cat]) {
+        var catHeading = document.createElement('h3');
+        catHeading.className = 'category-heading';
+        catHeading.textContent = 'Rotating out ' + titlecase(rotation.previous) + ':';
+        container.appendChild(catHeading);
+
+        var cardsContainer = document.createElement('div');
+        cardsContainer.className = 'cards-grid';
+
+        grouped[cat].forEach(function(vegetable) {
+          var card = createVegetableCard(vegetable, selectedDate);
+          cardsContainer.appendChild(card);
+        });
+
+        container.appendChild(cardsContainer);
+      }
+    });
   }
 
   function updateZoneImage() {
@@ -695,10 +723,6 @@
     var name = document.createElement('h3');
     name.textContent = titlecase(vegetable.name);
     body.appendChild(name);
-
-    var category = document.createElement('p');
-    category.innerHTML = '(' + titlecase(vegetable.category) + ')';
-    body.appendChild(category);
 
     var spacing = document.createElement('p');
     spacing.innerHTML = '<strong>Spacing:</strong> ' + vegetable.spaceCm + ' cm';
@@ -858,6 +882,13 @@
     text-align: center;
     margin-bottom: 30px;
     font-size: 2em;
+  }
+
+  .category-heading {
+    color: white;
+    text-align: center;
+    margin: 30px 0 20px 0;
+    font-size: 1.5em;
   }
 
   .cards-grid {
