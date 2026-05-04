@@ -504,7 +504,7 @@
     },
   };
 
-  var byMonth = [
+  var coolByMonth = [
     // January
     [beans, beetroot, broccoli, brusselsprouts, cabbage, carrot, celtuce, chervil, chives, corn, garlic, kale, kohlrabi, leek, lettuce, radish, silverbeet, springonion, swede, turnip], 
     // February
@@ -531,6 +531,33 @@
     [basil, beans, beetroot, broccoli, brusselsprouts, cabbage, carrot, celery, celtuce, chervil, chives, corn, cucumber, garlic, ginger, kale, kohlrabi, leek, lettuce, parsley, parsnip, potato, pumpkin, radish, rosella, sage, silverbeet, springonion, squash, tomato, turnip, watermelon, zucchini],  
   ]
 
+  var warmByMonth = [
+    // January
+    [amaranth, basil, beans, beetroot, brusselsprouts, cabbage, carrot, chervil, chives, corn, garlic, kale, kohlrabi, leek, lettuce, potato, radish, silverbeet, springonion, swede], 
+    // February
+    [amaranth, basil, beans, beetroot, brusselsprouts, cabbage, carrot, cauliflower, chervil, chives, corn, endive, garlic, kale, kohlrabi, leek, lettuce, potato, radish, silverbeet, springonion, swede], 
+    // March
+    [amaranth, asparagus, beetroot, broccoli, cabbage, carrot, cauliflower, celtuce, chervil, chives, coriander, endive, garlic, kale, kohlrabi, leek, lettuce, onion, parsley, parsnip, peas, radish, roquette, silverbeet, spinach, springonion, swede, thyme], 
+    // April
+    [asparagus, broadbeans, broccoli, cabbage, cauliflower, celtuce, chives, coriander, endive, garlic, kale, kohlrabi, leek, lettuce, onion, parsley, parsnip, peas, potato, radish, roquette, spinach, springonion, swede, thyme, turnip], 
+    // May
+    [asparagus, broadbeans, broccoli, cabbage, cauliflower, celtuce, coriander, garlic, kale, kohlrabi, lettuce, onion, parsnip, peas, potato, radish, roquette, spinach, springonion, swede, thyme, turnip], 
+    // June
+    [asparagus, broadbeans, broccoli, cabbage, celtuce, kale, lettuce, onion, peas, radish, spinach, springonion, swede, thyme, turnip], 
+    // July
+    [asparagus, beetroot, broccoli, cabbage, carrot, celtuce, chervil, kale, lettuce, onion, peas, potato, radish, spinach, springonion, swede, thyme, turnip], 
+    // August
+    [asparagus, beetroot, broccoli, cabbage, capsicum, carrot, celery, celtuce, chervil, chilli, coriander, corn, dill, kale, kohlrabi, leek, lettuce, onion, parsley, parsnip, peas, potato, radish, roquette, silverbeet, spinach, springonion, swede, tomato, turnip], 
+    // September
+    [amaranth, asparagus, artichoke, basil, beans, beetroot, cabbage, capsicum, carrot, celery, celtuce, chervil, chilli, chives, choko, coriander, corn, cucumber, daikon, dill, eggplant, endive, fennel, kale, kohlrabi, leek, lettuce, loofah, parsley, parsnip, peas, potato, pumpkin, radish, rockmelon, roquette, silverbeet, spinach, springonion, squash, swede, tomato, turnip, watermelon, zucchini], 
+    // October
+    [amaranth, asparagus, artichoke, basil, beans, beetroot, cabbage, capsicum, carrot, celery, celtuce, chervil, chilli, chives, choko, coriander, corn, cucumber, daikon, dill, eggplant, endive, fennel, ginger, kale, kohlrabi, leek, lettuce, loofah, okra, parsley, parsnip, potato, pumpkin, radish, rockmelon, roquette, rosella, sage, silverbeet, spinach, springonion, squash, swede, tomato, turnip, watermelon, zucchini], 
+    // November
+    [amaranth, asparagus, artichoke, basil, beans, beetroot, cabbage, capsicum, carrot, celery, celtuce, chervil, chilli, chives, choko, coriander, corn, cucumber, dill, eggplant, ginger, kale, kohlrabi, leek, lettuce, loofah, okra, parsley, parsnip, potato, pumpkin, radish, rockmelon, roquette, rosella, sage, silverbeet, springonion, squash, tomato, turnip, watermelon, zucchini], 
+    // December
+    [amaranth, basil, beans, beetroot, brusselsprouts, cabbage, capsicum, carrot, chervil, chilli, chives, corn, eggplant, garlic, ginger, kale, kohlrabi, leek, lettuce, okra, parsley, potato, pumpkin, radish, rosella, sage, silverbeet, springonion, squash, tomato, turnip, watermelon, zucchini],  
+  ]
+
   // Get today's date as default
   var today = new Date();
   var todayString = today.toISOString().split('T')[0];
@@ -538,17 +565,22 @@
   // Initialize with today's date
   document.addEventListener('DOMContentLoaded', function() {
     var dateInput = document.getElementById('harvestDate');
+    var climateSelect = document.getElementById('climateZone');
     dateInput.value = todayString;
     updateVegetables();
     
     dateInput.addEventListener('change', updateVegetables);
+    climateSelect.addEventListener('change', updateVegetables);
   });
 
   function updateVegetables() {
     var dateInput = document.getElementById('harvestDate');
+    var climateSelect = document.getElementById('climateZone');
     var selectedDate = new Date(dateInput.value);
     var month = selectedDate.getMonth(); // 0-11
+    var climateZone = climateSelect.value;
 
+    var byMonth = climateZone === 'warm' ? warmByMonth : coolByMonth;
     var vegetables = byMonth[month];
     var container = document.getElementById('vegetableContainer');
     container.innerHTML = '';
@@ -557,7 +589,7 @@
       "July", "August", "September", "October", "November", "December"];
     
     var heading = document.createElement('h2');
-    heading.textContent = monthNames[month] + ' Vegetables';
+    heading.textContent = monthNames[month] + ' Vegetables (' + climateZone.charAt(0).toUpperCase() + climateZone.slice(1) + ' Climate)';
     container.appendChild(heading);
 
     var cardsContainer = document.createElement('div');
@@ -650,21 +682,37 @@
     margin-bottom: 10px;
   }
 
+  .selectors {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  .climate-selector,
   .date-selector {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 30px;
   }
 
-  .date-selector label {
+  .selectors label {
     color: white;
     font-weight: bold;
     font-size: 1.1em;
     align-self: center;
   }
 
-  .date-selector input {
+  .selectors select {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    min-width: 100px;
+  }
+
+  .selectors input {
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
@@ -672,7 +720,7 @@
     min-width: 200px;
   }
 
-  .date-selector button {
+  .selectors button {
     padding: 10px 20px;
     background-color: #4a7c2f;
     color: white;
@@ -684,7 +732,7 @@
     transition: background-color 0.3s ease;
   }
 
-  .date-selector button:hover {
+  .selectors button:hover {
     background-color: #2d5016;
   }
 
@@ -750,10 +798,19 @@
       <h1>🌾 What should I plant? 🌾</h1>
     </header>
 
-    <div class="date-selector">
-      <label for="harvestDate">Select Date:</label>
-      <input type="date" id="harvestDate">
-      <button onclick="resetDateToToday()">Today</button>
+    <div class="selectors">
+      <div class="climate-selector">
+        <label for="climateZone">Climate Zone:</label>
+        <select id="climateZone">
+          <option value="cool" selected>Cool</option>
+          <option value="warm">Warm</option>
+        </select>
+      </div>
+      <div class="date-selector">
+        <label for="harvestDate">Select Date:</label>
+        <input type="date" id="harvestDate">
+        <button onclick="resetDateToToday()">Today</button>
+      </div>
     </div>
 
     <div id="vegetableContainer"></div>
