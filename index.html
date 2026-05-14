@@ -568,7 +568,7 @@
   ]
 </script>
 <script>
-  var coolByMonth = [
+  var vegetableCoolByMonth = [
     // January
     [beans, beetroot, broccoli, brusselsprouts, cabbage, carrot, celtuce, chervil, chives, corn, garlic, kale, kohlrabi, leek, lettuce, radish, silverbeet, springonion, swede, turnip], 
     // February
@@ -595,7 +595,7 @@
     [basil, beans, beetroot, broccoli, brusselsprouts, cabbage, carrot, celery, celtuce, chervil, chives, corn, cucumber, garlic, ginger, kale, kohlrabi, leek, lettuce, parsley, parsnip, potato, pumpkin, radish, rosella, sage, silverbeet, springonion, squash, tomato, turnip, watermelon, zucchini],  
   ]
 
-  var warmByMonth = [
+  var vegetableWarmByMonth = [
     // January
     [amaranth, basil, beans, beetroot, brusselsprouts, cabbage, carrot, chervil, chives, corn, garlic, kale, kohlrabi, leek, lettuce, potato, radish, silverbeet, springonion, swede], 
     // February
@@ -660,7 +660,7 @@
     var month = selectedDate.getMonth(); // 0-11
     var climateZone = climateSelect.value;
 
-    var byMonth = climateZone === 'warm' ? warmByMonth : coolByMonth;
+    var byMonth = climateZone === 'warm' ? warmByMonth : vegetableCoolByMonth;
     var allVegetables = byMonth[month];
 
     var container = document.getElementById('vegetableContainer');
