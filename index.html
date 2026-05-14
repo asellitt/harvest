@@ -1156,31 +1156,29 @@
   .climate-selector,
   .date-selector {
     display: flex;
-    justify-content: center;
+    align-items: center;
     gap: 10px;
+    width: 100%;
+    max-width: 520px;
   }
 
   .selectors label {
     color: white;
     font-weight: bold;
     font-size: 1.1em;
-    align-self: center;
+    width: 140px;
+    min-width: 140px;
+    text-align: right;
   }
 
-  .selectors select {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-    min-width: 100px;
-  }
-
+  .selectors select,
   .selectors input {
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
     font-size: 1em;
-    min-width: 200px;
+    width: 160px;
+    min-width: 160px;
   }
 
   .selectors button {
