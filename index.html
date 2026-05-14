@@ -887,23 +887,20 @@
     groupToggle.addEventListener('click', function() {
       grouped = !grouped;
       groupToggle.textContent = grouped ? 'Ungroup' : 'Crop Rotation';
-      updateVegetables();
+      update();
     });
     dateInput.value = todayString;
+    update();
+    
+    dateInput.addEventListener('change', update);
+    climateSelect.addEventListener('change', update);
+  });
+
+  function update() {
     updateZoneImage();
     updateVegetables();
     updateFlowers();
-    
-    dateInput.addEventListener('change', function() {
-      updateVegetables();
-      updateFlowers();
-    });
-    climateSelect.addEventListener('change', function() {
-      updateZoneImage();
-      updateVegetables();
-      updateFlowers();
-    });
-  });
+  }
 
   function updateVegetables() {
     var dateInput = document.getElementById('plantingDate');
@@ -927,10 +924,9 @@
     var heading = document.createElement('h2');
     heading.className = 'vegetable-heading';
     heading.textContent = monthNames[month] + ' Vegetables (' + climateZone.charAt(0).toUpperCase() + climateZone.slice(1) + ' Climate)';
+    
     headerDiv.appendChild(heading);
-
     headerDiv.appendChild(groupToggle);
-
     container.appendChild(headerDiv);
 
     if (grouped) {
@@ -1024,8 +1020,7 @@
   function resetDateToToday() {
     var dateInput = document.getElementById('plantingDate');
     dateInput.value = todayString;
-    updateVegetables();
-    updateFlowers();
+    update();
   }
 
   function createVegetableCard(vegetable, plantDate) {
