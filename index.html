@@ -568,6 +568,201 @@
   ]
 </script>
 <script>
+  var alyssum = {
+    name: "alyssum",
+    lifecycle: "hardy annual",
+    sunlight: "full sun/part shade",
+    watering: "drought tolerant",
+    features: ["attracts beneficial insects", "edible flowers"],
+  };
+  var bergamot = {
+    name: "bergamot",
+    sunlight: "full sun",
+    watering: "seasonal watering",
+    features: ["attracts beneficial insects"],
+  };
+  var billybuttons = {
+    name: "billy buttons",
+    lifecycle: "hardy perennial",
+    sunlight: "full sun",
+    watering: "drought tolerant",
+    features: ["australian native"],
+  };
+  var borage = {
+    name: "borage",
+    lifecycle: "hardy annual",
+    sunlight: "full sun",
+    watering: "seasonal watering",
+    features: ["attracts beneficial insects", "edible flowers"],
+  };
+  var calendula = {
+    name: "calendula",
+    lifecycle: "hardy annual",
+    sunlight: "full sun",
+    watering: "drought tolerant",
+    features: ["attracts beneficial insects", "edible flowers"],
+  };
+  var canterburybells = {
+    name: "canterbury bells",
+    lifecycle: "biennial",
+    sunlight: "full sun/part shade",
+    watering: "seasonal watering",
+  };
+  var cerinthe = {
+    name: "cerinthe",
+    lifecycle: "hardy annual",
+    sunlight: "full sun",
+    watering: "drought tolerant",
+  };
+  var cleome = {
+    name: "cleome",
+    sunlight: "full sun",
+    watering: "drought tolerant",
+  };
+  var corncockle = {
+    name: "corn cockle",
+    lifecycle: "hardy annual",
+    sunlight: "full sun",
+    watering: "drought tolerant/seasonal watering",
+  };
+  var cornflower = {
+    name: "cornflower",
+    lifecycle: "hardy annual",
+    sunlight: "full sun",
+    watering: "drought tolerant/seasonal watering",
+    features: ["attracts beneficial insects", "edible flowers"],
+  };
+  var cosmos = {
+    name: "cosmos",
+    lifecycle: "tender annual",
+    sunlight: "full sun",
+    watering: "drought tolerant",
+    features: ["attracts beneficial insects"],
+  };
+  var delphinium = {
+    name: "delphinium",
+    lifecycle: "hardy perennial",
+    sunlight: "full sun",
+    watering: "seasonal watering",
+  };
+  var echinacea = {
+    name: "echinacea",
+    lifecycle: "hardy perennial",
+    sunlight: "full sun",
+    watering: "seasonal watering",
+    features: ["attracts beneficial insects", "attracts birds"],
+  };
+  var everlastingdaisy = {
+    name: "everlasting daisy",
+    lifecycle: "hardy annual",
+    sunlight: "full sun",
+    watering: "drought tolerant",
+    features: ["australian native"],
+  };
+  var falsequeenanneslace = {
+    name: "false queen annes lace",
+    lifecycle: "hardy annual",
+    sunlight: "full sun",
+    watering: "drought tolerant",
+    features: ["attracts beneficial insects"],
+  };
+  var hollyhock = {
+    name: "hollyhock",
+    lifecycle: "hardy biennial",
+    sunlight: "full sun",
+    watering: "drought tolerant",
+  };
+  var lupin = {
+    name: "lupin",
+  };
+  var marigold = {
+    name: "marigold",
+    lifecycle: "tender annual",
+    sunlight: "full sun",
+    watering: "seasonal watering",
+    features: ["edible flowers"],
+  };
+  var mignonette = {
+    name: "mignonette",
+    lifecycle: "annual",
+    sunlight: "full sun",
+    watering: "drought tolerant",
+  };
+  var nasturtium = {
+    name: "nasturtium",
+    lifecycle: "hardy annual",
+    sunlight: "full sun/part shade",
+    watering: "drought tolerant",
+    features: ["attracts beneficial insects", "edible flowers"],
+  };
+  var nemophila = {
+    name: "nemophila",
+    lifecycle: "hardy annual",
+    sunlight: "full sun",
+    watering: "drought tolerant",
+  };
+  var poppy = {
+    name: "poppy",
+    lifecycle: "hardy annual",
+    sunlight: "full sun",
+    watering: "drought tolerant/seasonal watering",
+    features: ["attracts beneficial insects"],
+  };
+  var pyrethrum = {
+    name: "pyrethrum",
+    lifecycle: "hardy perennial",
+    sunlight: "full sun",
+    watering: "drought tolerant",
+  };
+  var salvia = {
+    name: "salvia",
+    lifecycle: "hardy annual/tender annual",
+    sunlight: "full sun",
+    watering: "drought tolerant",
+    features: ["attracts beneficial insects", "attracts birds"],
+  };
+  var sturtsdesertpea = {
+    name: "sturts desert pea",
+    lifecycle: "hardy annual",
+    sunlight: "full sun",
+    watering: "drought tolerant",
+    features: ["australian native"],
+  };
+  var sunflower = {
+    name: "sunflower",
+    lifecycle: "tender annual",
+    sunlight: "full sun",
+    watering: "drought tolerant",
+    features: ["attracts beneficial insects"],
+  };
+  var sweetpea = {
+    name: "sweet pea",
+    lifecycle: "hardy annual",
+    sunlight: "full sun",
+    watering: "seasonal watering",
+  };
+  var tansy = {
+    name: "tansy",
+    lifecycle: "hardy perennial",
+    sunlight: "full sun",
+    watering: "drought tolerant",
+  };
+  var viola = {
+    name: "viola",
+    lifecycle: "hardy annual",
+    sunlight: "full sun/part shade",
+    watering: "seasonal watering",
+    features: ["edible flowers"],
+  };
+  var zinnia = {
+    name: "zinnia",
+    lifecycle: "tender annual",
+    sunlight: "full sun",
+    watering: "drought tolerant",
+    features: ["attracts beneficial insects"],
+  };
+</script>
+<script>
   var vegetableCoolByMonth = [
     // January
     [beans, beetroot, broccoli, brusselsprouts, cabbage, carrot, celtuce, chervil, chives, corn, garlic, kale, kohlrabi, leek, lettuce, radish, silverbeet, springonion, swede, turnip], 
@@ -593,6 +788,32 @@
     [amaranth, asparagus, artichoke, basil, beans, beetroot, broccoli, brusselsprouts, cabbage, capsicum, carrot, celery, celtuce, chervil, chilli, chives, choko, coriander, corn, cucumber, daikon, endive, ginger, kale, kohlrabi, leek, lettuce, loofah, parsley, parsnip, potato, pumpkin, radish, rockmelon, roquette, rosella, sage, silverbeet, springonion, squash, tomato, turnip, watermelon, zucchini], 
     // December
     [basil, beans, beetroot, broccoli, brusselsprouts, cabbage, carrot, celery, celtuce, chervil, chives, corn, cucumber, garlic, ginger, kale, kohlrabi, leek, lettuce, parsley, parsnip, potato, pumpkin, radish, rosella, sage, silverbeet, springonion, squash, tomato, turnip, watermelon, zucchini],  
+  ]
+  var flowersCoolByMonth = [
+    // January
+    [alyssum, cleome, hollyhock, lupin, marigold, nasturtium, poppy, sturtsdesertpea, viola,],
+    // February
+    [alyssum, bergamot, calendula, canterburybells, cornflower, delphinium, echinacea, everlastingdaisy, hollyhock, lupin, mignonette, nemophila, poppy, sweetpea, viola], 
+    // March
+    [alyssum, billybuttons, bergamot, calendula, canterburybells, cerinthe, corncockle, cornflower, delphinium, echinacea, everlastingdaisy, falsequeenanneslace, hollyhock, lupin, mignonette, nemophila, poppy, pyrethrum, sweetpea, tansy, viola], 
+    // April
+    [alyssum, billybuttons, calendula, canterburybells, cerinthe, corncockle, delphinium, falsequeenanneslace, hollyhock, lupin, mignonette, nemophila, poppy, pyrethrum, sweetpea, tansy], 
+    // May
+    [alyssum, billybuttons, cerinthe, corncockle, falsequeenanneslace, hollyhock, poppy, pyrethrum, tansy], 
+    // June
+    [billybuttons], 
+    // July
+    [billybuttons], 
+    // August
+    [billybuttons, cerinthe, marigold, poppy], 
+    // September
+    [alyssum, billybuttons, borage, calendula, cerinthe, cleome, corncockle, cornflower, cosmos, delphinium, everlastingdaisy, hollyhock, lupin, marigold, mignonette, nasturtium, nemophila, poppy, pyrethrum, sweetpea, tansy, zinnia], 
+    // October
+    [alyssum, bergamot, billybuttons, borage, calendula, cerinthe, cleome, corncockle, cornflower, cosmos, delphinium, echinacea, everlastingdaisy, falsequeenanneslace, hollyhock, lupin, marigold, mignonette, nasturtium, nemophila, poppy, pyrethrum, salvia, sturtsdesertpea, sunflower, sweetpea, tansy, viola, zinnia], 
+    // November
+    [alyssum, bergamot, billybuttons, borage, cleome, corncockle, cosmos, echinacea, falsequeenanneslace, lupin, marigold, mignonette, nasturtium, poppy, salvia, sturtsdesertpea, sunflower, viola, zinnia], 
+    // December
+    [alyssum, cleome, hollyhock, lupin, marigold, nasturtium, poppy, sturtsdesertpea, viola],  
   ]
 
   var vegetableWarmByMonth = [
@@ -621,6 +842,32 @@
     // December
     [amaranth, basil, beans, beetroot, brusselsprouts, cabbage, capsicum, carrot, chervil, chilli, chives, corn, eggplant, garlic, ginger, kale, kohlrabi, leek, lettuce, okra, parsley, potato, pumpkin, radish, rosella, sage, silverbeet, springonion, squash, tomato, turnip, watermelon, zucchini],  
   ]
+  var flowersWarmByMonth = [
+    // January
+    [alyssum, cleome, lupin, marigold, nasturtium, poppy, sturtsdesertpea, viola], 
+    // February
+    [alyssum, bergamot, calendula, canterburybells, cleome, cornflower, delphinium, echinacea, everlastingdaisy, hollyhock, lupin, mignonette, nasturtium, nemophila, poppy, sturtsdesertpea, sweetpea, viola], 
+    // March
+    [alyssum, billybuttons, bergamot, calendula, canterburybells, cerinthe, corncockle, cornflower, delphinium, echinacea, everlastingdaisy, falsequeenanneslace, hollyhock, lupin, mignonette, nemophila, poppy, pyrethrum, sweetpea, tansy, viola], 
+    // April
+    [alyssum, billybuttons, calendula, canterburybells, cerinthe, corncockle, cornflower, delphinium, falsequeenanneslace, hollyhock, mignonette, nemophila, poppy, pyrethrum, sweetpea, tansy], 
+    // May
+    [alyssum, billybuttons, canterburybells, cerinthe, corncockle, cornflower, delphinium, falsequeenanneslace, hollyhock, lupin, mignonette, poppy, pyrethrum, tansy], 
+    // June
+    [billybuttons, canterburybells, cerinthe, cleome, corncockle, delphinium, mignonette, pyrethrum], 
+    // July
+    [billybuttons, cerinthe, cleome, delphinium, marigold, mignonette], 
+    // August
+    [alyssum, billybuttons, cerinthe, corncockle, cleome, delphinium, echinacea, everlastingdaisy, marigold, mignonette, nasturtium, poppy, pyrethrum, salvia, sweetpea, tansy, zinnia], 
+    // September
+    [alyssum, billybuttons, borage, calendula, cerinthe, cleome, corncockle, cornflower, cosmos, delphinium, echinacea, everlastingdaisy, hollyhock, lupin, marigold, mignonette, nasturtium, nemophila, poppy, pyrethrum, salvia, sturtsdesertpea, sunflower, sweetpea, tansy, zinnia], 
+    // October
+    [alyssum, bergamot, billybuttons, borage, calendula, cerinthe, cleome, corncockle, cornflower, cosmos, delphinium, echinacea, everlastingdaisy, falsequeenanneslace, hollyhock, lupin, marigold, mignonette, nasturtium, nemophila, poppy, salvia, sturtsdesertpea, sunflower, viola, zinnia], 
+    // November
+    [alyssum, bergamot, billybuttons, borage, cleome, corncockle, cosmos, echinacea, falsequeenanneslace, salvia, sturtsdesertpea, sunflower, viola, zinnia], 
+    // December
+    [alyssum, borage, cleome, cosmos, echinacea, lupin, marigold, nasturtium, poppy, salvia, sturtsdesertpea, sunflower, viola, zinnia],  
+  ]
 </script>
 <script>
   // Get today's date as default
@@ -631,7 +878,7 @@
 
   // Initialize with today's date
   document.addEventListener('DOMContentLoaded', function() {
-    var dateInput = document.getElementById('harvestDate');
+    var dateInput = document.getElementById('plantingDate');
     var climateSelect = document.getElementById('climateZone');
     groupToggle = document.createElement('button');
     groupToggle.id = 'groupToggle';
@@ -645,22 +892,27 @@
     dateInput.value = todayString;
     updateZoneImage();
     updateVegetables();
+    updateFlowers();
     
-    dateInput.addEventListener('change', updateVegetables);
+    dateInput.addEventListener('change', function() {
+      updateVegetables();
+      updateFlowers();
+    });
     climateSelect.addEventListener('change', function() {
       updateZoneImage();
       updateVegetables();
+      updateFlowers();
     });
   });
 
   function updateVegetables() {
-    var dateInput = document.getElementById('harvestDate');
+    var dateInput = document.getElementById('plantingDate');
     var climateSelect = document.getElementById('climateZone');
     var selectedDate = new Date(dateInput.value);
     var month = selectedDate.getMonth(); // 0-11
     var climateZone = climateSelect.value;
 
-    var byMonth = climateZone === 'warm' ? warmByMonth : vegetableCoolByMonth;
+    var byMonth = climateZone === 'warm' ? vegetableWarmByMonth : vegetableCoolByMonth;
     var allVegetables = byMonth[month];
 
     var container = document.getElementById('vegetableContainer');
@@ -724,6 +976,43 @@
     }
   }
 
+  function updateFlowers() {
+    var dateInput = document.getElementById('plantingDate');
+    var climateSelect = document.getElementById('climateZone');
+    var selectedDate = new Date(dateInput.value);
+    var month = selectedDate.getMonth(); // 0-11
+    var climateZone = climateSelect.value;
+
+    var byMonth = climateZone === 'warm' ? flowersWarmByMonth : flowersCoolByMonth;
+    var allFlowers = byMonth[month];
+
+    var container = document.getElementById('flowerContainer');
+    container.innerHTML = '';
+
+    var monthNames = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"];
+    
+    var headerDiv = document.createElement('div');
+    headerDiv.className = 'flower-header';
+
+    var heading = document.createElement('h2');
+    heading.className = 'flower-heading';
+    heading.textContent = monthNames[month] + ' Flowers (' + climateZone.charAt(0).toUpperCase() + climateZone.slice(1) + ' Climate)';
+    headerDiv.appendChild(heading);
+
+    container.appendChild(headerDiv);
+
+    var cardsContainer = document.createElement('div');
+    cardsContainer.className = 'cards-grid';
+
+    allFlowers.forEach(function(flower) {
+      var card = createFlowerCard(flower, selectedDate);
+      cardsContainer.appendChild(card);
+    });
+
+    container.appendChild(cardsContainer);
+  }
+
   function updateZoneImage() {
     var climateSelect = document.getElementById('climateZone');
     var zoneImage = document.getElementById('zoneImage');
@@ -733,7 +1022,7 @@
   }
 
   function resetDateToToday() {
-    var dateInput = document.getElementById('harvestDate');
+    var dateInput = document.getElementById('plantingDate');
     dateInput.value = todayString;
     updateVegetables();
   }
@@ -760,11 +1049,11 @@
     body.appendChild(spacing);
 
     // Calculate harvest dates
-    var minHarvestDate = new Date(plantDate);
-    minHarvestDate.setDate(minHarvestDate.getDate() + vegetable.harvestDays.min);
+    var minplantingDate = new Date(plantDate);
+    minplantingDate.setDate(minplantingDate.getDate() + vegetable.harvestDays.min);
     
-    var maxHarvestDate = new Date(plantDate);
-    maxHarvestDate.setDate(maxHarvestDate.getDate() + vegetable.harvestDays.max);
+    var maxplantingDate = new Date(plantDate);
+    maxplantingDate.setDate(maxplantingDate.getDate() + vegetable.harvestDays.max);
     
     var formatDate = function(date) {
       var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -772,8 +1061,51 @@
     };
 
     var harvest = document.createElement('p');
-    harvest.innerHTML = '<strong>Harvest:</strong> ' + formatDate(minHarvestDate) + ' - ' + formatDate(maxHarvestDate);
+    harvest.innerHTML = '<strong>Harvest:</strong> ' + formatDate(minplantingDate) + ' - ' + formatDate(maxplantingDate);
     body.appendChild(harvest);
+
+    card.appendChild(body);
+
+    return card;
+  }
+
+  function createFlowerCard(flower, plantDate) {
+    var card = document.createElement('div');
+    card.className = 'flower-card';
+
+    var image = document.createElement('img');
+    var imageName = flower.name.toLowerCase();
+    image.src = 'assets/images/flowers/' + imageName + '.webp';
+    image.alt = flower.name + ' image';
+    card.appendChild(image);
+
+    var body = document.createElement('div');
+    body.className = 'card-body';
+
+    var name = document.createElement('h3');
+    name.textContent = titlecase(flower.name);
+    body.appendChild(name);
+
+    if (flower.lifecycle) {
+      var lifecycle = document.createElement('p');
+      lifecycle.innerHTML = '<strong>Lifecycle:</strong> ' + flower.lifecycle;
+      body.appendChild(lifecycle);
+    }
+    if (flower.sunlight) {
+      var sunlight = document.createElement('p');
+      sunlight.innerHTML = '<strong>Sunlight:</strong> ' + flower.sunlight;
+      body.appendChild(sunlight);
+    }
+    if (flower.watering) {
+      var watering = document.createElement('p');
+      watering.innerHTML = '<strong>Watering:</strong> ' + flower.watering;
+      body.appendChild(watering);
+    }
+    if (flower.features) {
+      var features = document.createElement('p');
+      features.innerHTML = '<strong>Features:</strong> ' + flower.features.join(', ');
+      body.appendChild(features);
+    }
 
     card.appendChild(body);
 
@@ -908,7 +1240,7 @@
     display: block;
   }
 
-  .vegetable-header {
+  .vegetable-header, .flower-header {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -917,7 +1249,7 @@
     color: white;
   }
 
-  .vegetable-heading {
+  .vegetable-heading, .flower-heading {
     font-size: 2em;
     margin: 0;
   }
@@ -952,7 +1284,7 @@
     padding: 20px;
   }
 
-  .vegetable-card {
+  .vegetable-card, .flower-card {
     background: white;
     border-radius: 10px;
     padding: 0;
@@ -961,12 +1293,12 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .vegetable-card:hover {
+  .vegetable-card:hover, .flower-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
   }
 
-  .vegetable-card img {
+  .vegetable-card img, .flower-card img {
     width: 100%;
     height: 220px;
     object-fit: contain;
@@ -974,23 +1306,23 @@
     padding-top:20px;
   }
 
-  .vegetable-card .card-body {
+  .vegetable-card .card-body, .flower-card .card-body {
     padding: 20px;
   }
 
-  .vegetable-card h3 {
+  .vegetable-card h3, .flower-card h3 {
     color: #2d5016;
     margin-bottom: 15px;
     font-size: 1.3em;
   }
 
-  .vegetable-card p {
+  .vegetable-card p, .flower-card p {
     color: #333;
     margin-bottom: 10px;
     line-height: 1.6;
   }
 
-  .vegetable-card strong {
+  .vegetable-card strong, .flower-card strong {
     color: #4a7c2f;
   }
 </style>
@@ -1016,12 +1348,14 @@
         </div>
       </div>
       <div class="date-selector">
-        <label for="harvestDate">Select Date:</label>
-        <input type="date" id="harvestDate">
+        <label for="plantingDate">Planting Date:</label>
+        <input type="date" id="plantingDate">
         <button onclick="resetDateToToday()">Today</button>
       </div>
     </div>
 
     <div id="vegetableContainer"></div>
+
+    <div id="flowerContainer"></div>
   </div>
 </body>
